@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Taking App</title>
+</head>
+<body>
+    <h1> Welcome to Note Taking App</h1><br>
+    <p>Write you notes below</p><br>
+    <form action="/" method="post">
+        <input type="text" name="note" placeholder="Enter a note">
+        <button type = 'submit'>Add note</button>
+    </form>
+
+    {% for note in notes %}
+    <p>{{note}}</p>
+    <form method="POST" action="/delete/{{ notes.index(note) }}">
+        <button type="submit">
+          Delete
+        </button>
+    </form>
+    {% endfor %}
+</body>
+</html>
